@@ -1,7 +1,7 @@
 baseurl = "/"
 languageCode = "id-id"
 languageLang = "id"
-title = "Diksi.com"
+title = "diksi.com"
 
 # RSS, categories and tags disabled for an easy start
 # See configuration options for more details: 
