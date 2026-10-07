@@ -1,13 +1,64 @@
 {{ define "main" }}
+<style>
+.portal-container{max-width:1200px;margin:0 auto;padding:20px 15px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.hero-section{margin-bottom:40px;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1)}
+.hero-link{display:block;position:relative;text-decoration:none;color:inherit}
+.hero-image{width:100%;height:450px;object-fit:cover;display:block}
+.hero-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.5) 60%,transparent 100%);padding:40px 30px 25px;color:#fff}
+.hero-category{display:inline-block;background:#e63946;color:#fff;padding:5px 12px;border-radius:4px;font-size:.75rem;font-weight:700;letter-spacing:1px;margin-bottom:10px}
+.hero-title{font-size:2rem;font-weight:800;margin:0 0 10px 0;line-height:1.2;color:#fff}
+.hero-desc{font-size:1rem;margin:0;opacity:.9;line-height:1.4;color:#fff}
+.section-title{font-size:1.5rem;font-weight:800;color:#1a1a1a;margin:0 0 25px 0;padding-bottom:12px;border-bottom:3px solid #e63946;display:inline-block}
+.news-grid-section{margin-bottom:40px}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.news-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s}
+.news-card:hover{transform:translateY(-5px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.news-card a{text-decoration:none;color:inherit;display:block}
+.card-image{overflow:hidden;height:180px}
+.card-image img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.news-card:hover .card-image img{transform:scale(1.05)}
+.card-content{padding:18px}
+.card-title{font-size:1.05rem;font-weight:700;margin:0 0 10px 0;line-height:1.4;color:#1a1a1a;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-desc{font-size:.9rem;color:#666;margin:0 0 12px 0;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-date{font-size:.8rem;color:#999;font-weight:500}
+@media(max-width:900px){.news-grid{grid-template-columns:repeat(2,1fr);gap:18px}.hero-image{height:350px}.hero-title{font-size:1.5rem}}
+@media(max-width:600px){.portal-container{padding:15px 10px}.news-grid{grid-template-columns:repeat(2,1fr);gap:12px}.hero-image{height:250px}.hero-overlay{padding:25px 18px 15px}.hero-title{font-size:1.15rem}.hero-desc{display:none}.hero-category{font-size:.65rem;padding:4px 8px}.section-title{font-size:1.2rem;margin-bottom:18px}.card-image{height:110px}.card-content{padding:10px}.card-title{font-size:.85rem;margin-bottom:6px}.card-desc{font-size:.75rem;-webkit-line-clamp:2;margin-bottom:6px}.card-date{font-size:.7rem}}
+</style>
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
-
-{{ partial "short-text" .Params.blurb}}
-
-{{ partial "2-up" .Params }}
-
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
-
-{{ partial "blog" . }}
-
+<div class="portal-container">
+{{ $posts := where .Site.RegularPages "Section" "post" }}
+{{ $posts = $posts.ByDate.Reverse }}
+{{ $latest := index $posts 0 }}
+{{ with $latest }}
+<section class="hero-section">
+<a href="{{ .Permalink }}" class="hero-link">
+{{ if .Params.image }}<img src="{{ .Params.image }}" alt="{{ .Title }}" class="hero-image">{{ end }}
+<div class="hero-overlay">
+<span class="hero-category">BERITA UTAMA</span>
+<h1 class="hero-title">{{ .Title }}</h1>
+{{ if .Params.description }}<p class="hero-desc">{{ .Params.description }}</p>{{ end }}
+</div>
+</a>
+</section>
+{{ end }}
+<section class="news-grid-section">
+<h2 class="section-title">Berita Terbaru</h2>
+<div class="news-grid">
+{{ range after 1 $posts }}
+<article class="news-card">
+<a href="{{ .Permalink }}">
+{{ if .Params.image }}
+<div class="card-image"><img src="{{ .Params.image }}" alt="{{ .Title }}"></div>
+{{ end }}
+<div class="card-content">
+<h3 class="card-title">{{ .Title }}</h3>
+{{ if .Params.description }}<p class="card-desc">{{ .Params.description }}</p>{{ else }}<p class="card-desc">{{ .Summary | truncate 100 }}</p>{{ end }}
+<span class="card-date">{{ .Date.Format "02 Jan 2006" }}</span>
+</div>
+</a>
+</article>
+{{ end }}
+</div>
+</section>
+</div>
 {{ end }}
