@@ -1,6 +1,8 @@
 <style>
-body{background:#ffffff !important}
-main, .main-content, .content{background:#ffffff !important}
+html, body{background:#ffffff !important;margin:0 !important;padding:0 !important}
+body > div, body > main, body > section, body > article, body > .wrapper{background:#ffffff !important}
+.site-wrapper, .page-wrapper, .content-wrapper, .main-wrapper, .container, .container-fluid{background:#ffffff !important}
+main, .main-content, .content, article.post{background:#ffffff !important}
 footer{margin-bottom:0 !important;padding-bottom:0 !important}
 </style>
 
@@ -53,6 +55,7 @@ footer{margin-bottom:0 !important;padding-bottom:0 !important}
 
   </div>
 </footer>
+
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('img[src*="og-image"]').forEach(function(img){
@@ -62,4 +65,4 @@ document.addEventListener('DOMContentLoaded',function(){
     img.parentNode.replaceChild(div, img);
   });
 });
-                                </script>
+</script>
