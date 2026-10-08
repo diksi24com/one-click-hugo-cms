@@ -1,9 +1,10 @@
 <style>
-html, body{background:#ffffff !important;margin:0 !important;padding:0 !important;min-height:0 !important;height:auto !important}
-body > div, body > main, body > section, body > article, body > .wrapper, body > #wrapper{background:#ffffff !important;min-height:0 !important}
-.site-wrapper, .page-wrapper, .content-wrapper, .main-wrapper, .container, .container-fluid, #wrapper, #page, #content{background:#ffffff !important;min-height:0 !important}
-main, .main-content, .content, article.post, section{background:#ffffff !important;min-height:0 !important}
-footer{margin-bottom:0 !important;padding-bottom:0 !important}
+html, body{background:#ffffff !important;margin:0 !important;padding:0 !important}
+body{display:flex !important;flex-direction:column !important;min-height:100vh !important}
+body > div, body > main, body > section, body > article{background:#ffffff !important}
+.site-wrapper, .page-wrapper, .content-wrapper, .main-wrapper, #wrapper, #page{background:#ffffff !important}
+main, .main-content, .content, article.post{background:#ffffff !important;flex:1 0 auto !important;min-height:calc(100vh - 400px) !important}
+footer{margin-bottom:0 !important;padding-bottom:0 !important;flex-shrink:0 !important}
 </style>
 
 <style>
