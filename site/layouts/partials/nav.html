@@ -1,4 +1,25 @@
-<nav data-nav class="flex justify-between items-center center bg-white divider-grey relative">
+<style>
+nav[data-nav]{
+  position:sticky !important;
+  top:0 !important;
+  z-index:9999 !important;
+  background:#ffffff !important;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08) !important;
+  transition:box-shadow .3s;
+}
+nav[data-nav].scrolled{
+  box-shadow:0 4px 12px rgba(0,0,0,0.15) !important;
+}
+@media(max-width:768px){
+  nav[data-nav]{
+    box-shadow:0 2px 6px rgba(0,0,0,0.1) !important;
+  }
+}
+/* Supaya menu mobile tidak menutup konten saat dibuka */
+nav[data-nav] .mobile-menu-container{z-index:10000}
+	</style>
+
+<nav data-nav class="flex justify-between items-center center bg-white divider-grey sticky">
 
 	<!-- Logo -->
 	<a href="/" class="pa3 db mr4 h-100 w4 flex-none">
@@ -21,3 +42,15 @@
 	</ul>
 
 </nav>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var nav = document.querySelector('nav[data-nav]');
+  if(nav){
+    window.addEventListener('scroll',function(){
+      if(window.scrollY > 50){ nav.classList.add('scrolled'); }
+      else{ nav.classList.remove('scrolled'); }
+    });
+  }
+});
+</script>
