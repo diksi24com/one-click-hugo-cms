@@ -1,12 +1,37 @@
-baseurl = "/"
+baseURL = "https://diksi24.com/"
 languageCode = "id-id"
 languageLang = "id"
 title = "Diksi24"
 
-# RSS, categories and tags disabled for an easy start
-# See configuration options for more details: 
-# https://gohugo.io/getting-started/configuration/#toml-configuration
-disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+# Aktifkan kategori untuk Nasional, Daerah, Opini
+[taxonomies]
+  category = "categories"
 
 [params]
 images = ["img/og-image.jpg"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    name = "Berita"
+    url = "/post/"
+    weight = 20
+  [[menu.main]]
+    name = "Nasional"
+    url = "/categories/nasional/"
+    weight = 30
+  [[menu.main]]
+    name = "Daerah"
+    url = "/categories/daerah/"
+    weight = 40
+  [[menu.main]]
+    name = "Opini"
+    url = "/categories/opini/"
+    weight = 50
+  [[menu.main]]
+    name = "Hubungi Kami"
+    url = "/contact/"
+    weight = 60
