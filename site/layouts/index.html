@@ -3,21 +3,32 @@
 .portal-container{max-width:1200px;margin:0 auto;padding:20px 15px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
 .section-heading{font-size:1.4rem;font-weight:900;color:#1a1a1a;margin:10px 0 20px 0;text-transform:uppercase;letter-spacing:1px;padding-bottom:12px;border-bottom:3px solid #e63946;display:inline-block}
 
-/* FEATURED */
-.featured-card{margin-bottom:50px;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1);background:#fff}
-.featured-link{display:block;position:relative;text-decoration:none;color:inherit}
-.featured-image{width:100%;height:420px;object-fit:cover;display:block;background:#e0e0e0}
-.featured-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 70%,transparent 100%);padding:40px 30px 25px;color:#fff}
-.featured-category{display:inline-block;background:#e63946;color:#fff;padding:5px 12px;border-radius:4px;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
-.featured-title{font-size:2rem;font-weight:900;margin:0 0 15px 0;line-height:1.2;color:#fff}
-.featured-desc{font-size:1rem;margin:0;opacity:.92;line-height:1.5;color:#fff}
-.featured-info{padding:20px 25px;display:flex;flex-wrap:wrap;align-items:center;gap:15px;font-size:.85rem;color:#666}
-.featured-info .author{font-weight:600;color:#1a1a1a}
-.featured-info .dot{color:#ccc}
-.btn-readmore{display:inline-block;margin-top:15px;padding:12px 24px;background:#e63946;color:#fff;text-decoration:none;font-weight:700;border-radius:6px;font-size:.9rem;transition:background .3s}
-.btn-readmore:hover{background:#c1121f}
+/* ===== SLIDER ===== */
+.slider-wrapper{position:relative;margin-bottom:50px;border-radius:12px;overflow:hidden;box-shadow:0 6px 25px rgba(0,0,0,0.12);background:#1a1a1a}
+.slider-track{position:relative;width:100%;height:480px}
+.slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease;pointer-events:none}
+.slide.active{opacity:1;pointer-events:auto}
+.slide-link{display:block;width:100%;height:100%;text-decoration:none;color:inherit;position:relative}
+.slide-img{width:100%;height:100%;object-fit:cover;display:block}
+.slide-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.95) 0%,rgba(0,0,0,0.55) 55%,transparent 100%);padding:45px 35px 30px;color:#fff}
+.slide-cat{display:inline-block;background:#e63946;color:#fff;padding:5px 12px;border-radius:4px;font-size:.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.slide-title{font-size:2rem;font-weight:900;margin:0 0 12px 0;line-height:1.2;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.slide-desc{font-size:1rem;margin:0;opacity:.95;line-height:1.5;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+.slide-info{margin-top:15px;font-size:.85rem;color:#ddd;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.slide-info .dot{color:#888}
 
-/* GRID PILIHAN EDITOR */
+/* Navigasi */
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;width:48px;height:48px;border-radius:50%;font-size:1.8rem;font-weight:700;cursor:pointer;transition:background .3s;z-index:10;display:flex;align-items:center;justify-content:center;font-family:inherit;line-height:1}
+.slider-btn:hover{background:#e63946}
+.slider-btn.prev{left:18px}
+.slider-btn.next{right:18px}
+
+/* Dots */
+.slider-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:9px;z-index:10}
+.slider-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.4);border:none;cursor:pointer;transition:all .3s;padding:0}
+.slider-dot.active{background:#e63946;width:28px;border-radius:5px}
+
+/* ===== GRID PILIHAN EDITOR ===== */
 .editor-section{margin-bottom:40px}
 .editor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:30px}
 .editor-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
@@ -32,29 +43,35 @@
 .editor-card .card-desc{font-size:.85rem;color:#666;margin:0 0 12px 0;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
 .editor-card .card-date{font-size:.75rem;color:#999;font-weight:500}
 
-/* PAGINATION */
+/* ===== PAGINATION ===== */
 .editor-pagination{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:20px;border-top:1px solid #eee}
 .editor-pagination button{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#1a1a1a;color:#fff;border:none;border-radius:6px;font-weight:700;font-size:.85rem;cursor:pointer;transition:background .3s;font-family:inherit}
 .editor-pagination button:hover:not(:disabled){background:#e63946}
 .editor-pagination button:disabled{opacity:.35;cursor:not-allowed}
 .editor-page-info{font-size:.85rem;color:#666;font-weight:600}
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-  .featured-image{height:350px}.featured-title{font-size:1.5rem}
+  .slider-track{height:400px}
+  .slide-title{font-size:1.5rem}
   .editor-grid{grid-template-columns:repeat(3,1fr);gap:18px}
 }
 @media(max-width:600px){
   .portal-container{padding:15px 10px}
   .section-heading{font-size:1.1rem;margin:5px 0 15px 0}
-  .featured-card{margin-bottom:30px}
-  .featured-image{height:260px}
-  .featured-overlay{padding:25px 18px 15px}
-  .featured-title{font-size:1.25rem;margin-bottom:8px}
-  .featured-desc{font-size:.85rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .featured-category{font-size:.65rem;padding:4px 8px;margin-bottom:8px}
-  .featured-info{padding:15px;gap:10px;font-size:.75rem}
-  .btn-readmore{padding:10px 18px;font-size:.8rem;margin-top:10px}
+  .slider-wrapper{margin-bottom:30px;border-radius:8px}
+  .slider-track{height:320px}
+  .slide-overlay{padding:30px 18px 18px}
+  .slide-title{font-size:1.15rem;margin-bottom:6px}
+  .slide-desc{font-size:.8rem;-webkit-line-clamp:2}
+  .slide-cat{font-size:.65rem;padding:4px 8px;margin-bottom:8px}
+  .slide-info{font-size:.7rem;margin-top:8px}
+  .slider-btn{width:36px;height:36px;font-size:1.4rem}
+  .slider-btn.prev{left:8px}
+  .slider-btn.next{right:8px}
+  .slider-dots{bottom:10px;gap:6px}
+  .slider-dot{width:8px;height:8px}
+  .slider-dot.active{width:20px}
   .editor-grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .editor-card .card-img{height:110px}
   .editor-card .card-body{padding:10px}
@@ -70,39 +87,48 @@
 <div class="portal-container">
 {{ $posts := where .Site.RegularPages "Section" "post" }}
 {{ $posts = $posts.ByDate.Reverse }}
-{{ $latest := index $posts 0 }}
+{{ $sliderPosts := first 5 $posts }}
 {{ $rest := after 1 $posts }}
 
-{{ with $latest }}
-<!-- FEATURED CARD -->
-<h2 class="section-heading">Berita Terbaru</h2>
-<article class="featured-card">
-<a href="{{ .Permalink }}" class="featured-link">
-{{ if .Params.image }}
-<img src="{{ .Params.image }}" alt="{{ .Title }}" class="featured-image">
-{{ else }}
-<div class="featured-image" style="background:linear-gradient(135deg,#e63946 0%,#c1121f 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem;font-weight:900;letter-spacing:3px;">DIKSI24</div>
-{{ end }}
-<div class="featured-overlay">
-{{ with .Params.categories }}<span class="featured-category">{{ index . 0 }}</span>{{ else }}<span class="featured-category">Berita</span>{{ end }}
-<h1 class="featured-title">{{ .Title }}</h1>
-{{ if .Params.description }}<p class="featured-desc">{{ .Params.description }}</p>{{ end }}
+<!-- ===== SLIDER ===== -->
+{{ if gt (len $sliderPosts) 0 }}
+<div class="slider-wrapper" id="sliderWrapper">
+  <div class="slider-track" id="sliderTrack">
+    {{ range $i, $post := $sliderPosts }}
+    <div class="slide {{ if eq $i 0 }}active{{ end }}" data-index="{{ $i }}">
+      <a href="{{ .Permalink }}" class="slide-link">
+        {{ if .Params.image }}
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="slide-img">
+        {{ else }}
+        <div class="slide-img" style="background:linear-gradient(135deg,#e63946 0%,#c1121f 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:4rem;font-weight:900;letter-spacing:4px;">DIKSI24</div>
+        {{ end }}
+        <div class="slide-overlay">
+          {{ with .Params.categories }}<span class="slide-cat">{{ index . 0 }}</span>{{ else }}<span class="slide-cat">Berita</span>{{ end }}
+          <h1 class="slide-title">{{ .Title }}</h1>
+          {{ if .Params.description }}<p class="slide-desc">{{ .Params.description }}</p>{{ end }}
+          <div class="slide-info">
+            <span>{{ with .Params.author }}{{ . }}{{ else }}Redaksi Diksi24{{ end }}</span>
+            <span class="dot">•</span>
+            <span>{{ .Date.Format "02 Jan 2006" }}</span>
+            <span class="dot">•</span>
+            <span>{{ .ReadingTime }} menit baca</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+  <button class="slider-btn prev" id="sliderPrev" type="button" aria-label="Sebelumnya">‹</button>
+  <button class="slider-btn next" id="sliderNext" type="button" aria-label="Selanjutnya">›</button>
+  <div class="slider-dots" id="sliderDots">
+    {{ range $i, $post := $sliderPosts }}
+    <button class="slider-dot {{ if eq $i 0 }}active{{ end }}" data-index="{{ $i }}" type="button" aria-label="Slide {{ add $i 1 }}"></button>
+    {{ end }}
+  </div>
 </div>
-</a>
-<div class="featured-info">
-<span class="author">{{ with .Params.author }}{{ . }}{{ else }}Redaksi Diksi24{{ end }}</span>
-<span class="dot">•</span>
-<span>{{ .Date.Format "02 Jan 2006" }}</span>
-<span class="dot">•</span>
-<span>{{ .ReadingTime }} menit baca</span>
-</div>
-<div style="padding:0 25px 25px;">
-<a href="{{ .Permalink }}" class="btn-readmore">Baca Selengkapnya →</a>
-</div>
-</article>
 {{ end }}
 
-<!-- GRID PILIHAN EDITOR -->
+<!-- ===== GRID PILIHAN EDITOR ===== -->
 {{ if gt (len $rest) 0 }}
 <section class="editor-section">
 <h2 class="section-heading">Pilihan Editor</h2>
@@ -128,7 +154,6 @@
 {{ end }}
 </div>
 
-<!-- PAGINATION -->
 <div class="editor-pagination">
 <button id="prevBtn" type="button">‹ Sebelumnya</button>
 <span class="editor-page-info" id="pageInfo">Halaman 1</span>
@@ -140,32 +165,89 @@
 
 <script>
 document.addEventListener('DOMContentLoaded',function(){
+  /* ===== SLIDER ===== */
+  var slides = document.querySelectorAll('.slide');
+  var dots = document.querySelectorAll('.slider-dot');
+  var prevBtn = document.getElementById('sliderPrev');
+  var nextBtn = document.getElementById('sliderNext');
+  var wrapper = document.getElementById('sliderWrapper');
+  var currentSlide = 0;
+  var autoPlayTimer;
+  var AUTOPLAY_MS = 5000;
+
+  function showSlide(n){
+    if(slides.length === 0) return;
+    if(n < 0) n = slides.length - 1;
+    if(n >= slides.length) n = 0;
+    currentSlide = n;
+    slides.forEach(function(s,i){ s.classList.toggle('active', i === n); });
+    dots.forEach(function(d,i){ d.classList.toggle('active', i === n); });
+  }
+
+  function nextSlide(){ showSlide(currentSlide + 1); }
+  function prevSlide(){ showSlide(currentSlide - 1); }
+  function startAuto(){ stopAuto(); autoPlayTimer = setInterval(nextSlide, AUTOPLAY_MS); }
+  function stopAuto(){ if(autoPlayTimer){ clearInterval(autoPlayTimer); autoPlayTimer = null; } }
+
+  if(nextBtn) nextBtn.addEventListener('click', function(){ nextSlide(); startAuto(); });
+  if(prevBtn) prevBtn.addEventListener('click', function(){ prevSlide(); startAuto(); });
+  dots.forEach(function(d,i){
+    d.addEventListener('click', function(){ showSlide(i); startAuto(); });
+  });
+
+  if(wrapper && slides.length > 1){
+    wrapper.addEventListener('mouseenter', stopAuto);
+    wrapper.addEventListener('mouseleave', startAuto);
+
+    /* Swipe support (HP) */
+    var startX = 0, endX = 0, isDragging = false;
+    wrapper.addEventListener('touchstart', function(e){
+      startX = e.touches[0].clientX; isDragging = true; stopAuto();
+    }, {passive:true});
+    wrapper.addEventListener('touchmove', function(e){
+      if(!isDragging) return;
+      endX = e.touches[0].clientX;
+    }, {passive:true});
+    wrapper.addEventListener('touchend', function(){
+      if(!isDragging) return;
+      var diff = startX - endX;
+      if(Math.abs(diff) > 50){
+        if(diff > 0) nextSlide(); else prevSlide();
+      }
+      isDragging = false;
+      startAuto();
+    });
+
+    startAuto();
+  }
+
+  /* ===== PAGINATION PILIHAN EDITOR ===== */
   var grid = document.getElementById('editorGrid');
   if(!grid) return;
   var cards = grid.querySelectorAll('.editor-card');
   var perPage = 5;
-  var currentPage = 0;
+  var page = 0;
   var totalPages = Math.ceil(cards.length / perPage);
 
-  function render(){
+  function renderGrid(){
     cards.forEach(function(card, i){
-      var start = currentPage * perPage;
+      var start = page * perPage;
       var end = start + perPage;
       card.style.display = (i >= start && i < end) ? '' : 'none';
     });
-    document.getElementById('pageInfo').textContent = 'Halaman ' + (currentPage + 1) + ' / ' + totalPages;
-    document.getElementById('prevBtn').disabled = (currentPage === 0);
-    document.getElementById('nextBtn').disabled = (currentPage >= totalPages - 1);
+    document.getElementById('pageInfo').textContent = 'Halaman ' + (page + 1) + ' / ' + totalPages;
+    document.getElementById('prevBtn').disabled = (page === 0);
+    document.getElementById('nextBtn').disabled = (page >= totalPages - 1);
   }
 
   document.getElementById('prevBtn').addEventListener('click', function(){
-    if(currentPage > 0){ currentPage--; render(); grid.scrollIntoView({behavior:'smooth', block:'start'}); }
+    if(page > 0){ page--; renderGrid(); grid.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
   document.getElementById('nextBtn').addEventListener('click', function(){
-    if(currentPage < totalPages - 1){ currentPage++; render(); grid.scrollIntoView({behavior:'smooth', block:'start'}); }
+    if(page < totalPages - 1){ page++; renderGrid(); grid.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
 
-  render();
+  renderGrid();
 });
 </script>
 {{ end }}
