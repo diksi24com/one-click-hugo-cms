@@ -32,6 +32,6 @@ images = ["img/og-image.jpg"]
     url = "/categories/opini/"
     weight = 50
   [[menu.main]]
-    name = "Hubungi Kami"
+    name = "Kontak"
     url = "/contact/"
     weight = 60
