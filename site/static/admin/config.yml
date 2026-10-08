@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: diksi24com/one-click-hugo-cms
   branch: main
+  base_url: https://sveltia-cms-auth.diksi-com2026.workers.dev
 
 media_folder: "site/static/img"
 public_folder: "img"
