@@ -29,7 +29,7 @@
 {{ if .Params.image }}
 <img src="{{ .Params.image }}" alt="{{ .Title }}" class="featured-image">
 {{ else }}
-<img src="/img/og-image.jpg" alt="{{ .Title }}" class="featured-image">
+<div style="width:100%;height:420px;background:linear-gradient(135deg,#e63946 0%,#c1121f 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem;font-weight:900;letter-spacing:3px;">DIKSI24</div>
 {{ end }}
 <div class="featured-overlay">
 {{ with .Params.categories }}<span class="featured-category">{{ index . 0 }}</span>{{ else }}<span class="featured-category">Berita</span>{{ end }}
