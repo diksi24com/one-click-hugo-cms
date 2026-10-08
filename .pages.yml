@@ -1,0 +1,59 @@
+media:
+  - name: images
+    label: Gambar
+    input: site/static/img
+    output: /img
+
+content:
+  - name: berita
+    label: Berita
+    type: collection
+    path: site/content/post
+    filename: '{year}-{month}-{day}-{slug}/index.md'
+    fields:
+      - name: title
+        label: Judul
+        type: string
+        required: true
+      - name: date
+        label: Tanggal
+        type: date
+        required: true
+      - name: description
+        label: Ringkasan
+        type: text
+      - name: image
+        label: Gambar Utama
+        type: image
+      - name: categories
+        label: Kategori
+        type: list
+        default: [Berita]
+      - name: author
+        label: Penulis
+        type: string
+        default: Redaksi Diksi24
+      - name: body
+        label: Isi Berita
+        type: rich-text
+        required: true
+
+  - name: halaman
+    label: Halaman
+    type: collection
+    path: site/content/pages
+    filename: '{slug}.md'
+    fields:
+      - name: title
+        label: Judul Halaman
+        type: string
+        required: true
+      - name: date
+        label: Tanggal
+        type: date
+      - name: description
+        label: Deskripsi
+        type: text
+      - name: body
+        label: Isi Halaman
+        type: rich-text
